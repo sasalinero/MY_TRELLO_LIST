@@ -7,7 +7,7 @@ function App() {
        <h1>TO DO LIST</h1>
               
       </header>
-      <ul>URGENTE<li></li></ul>
+      <ul><li>URGENTE</li></ul>
     </div>
   );
 }
