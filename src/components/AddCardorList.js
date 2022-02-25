@@ -5,7 +5,8 @@ import { AddCardorListText } from "./AddCardorListText";
 
 const AddCardorList = () => {
 
-const [open, setOpen ]=useState(false);
+const [open, setOpen ]=useState(true);
+
 const classes=useStyle();
 
 
@@ -19,7 +20,7 @@ const classes=useStyle();
       
        <Collapse in={!open}>
 
-       <Paper className={classes.AddCardorListText}>
+       <Paper className={classes.addCardorListText}>
          <Typography>+ Add a card</Typography>
           </Paper>
 
@@ -48,7 +49,7 @@ const useStyle= makeStyles(theme=>({
     margin: theme.spacing(0, 1, 1, 1),
     background: "#ebecf0",
     "&:hover" :{
-      backgroundColor: alpha("#000", 0.25)
+      backgroundColor: alpha("#66FF19", 0.50)
     }
 
   }//Con el hover y el fade hacemos que cuando el raton pase por encima se oscurezca #000 pero solo un 25%
