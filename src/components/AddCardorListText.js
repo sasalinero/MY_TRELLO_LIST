@@ -12,7 +12,7 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz"; //Este es el icono de 
 
 import React, { useState } from "react";
 //Aquí es donde vamos a escribir nueva cosa que hacer o tambien se rehutilizara para escribir nueva tarjeta ej "urgente"
-export const AddCardorListText = () => {
+export const AddCardorListText = ({type}) => {
   const [title, setTitle] = useState("");
 
   const classes = useStyle();
@@ -26,14 +26,19 @@ export const AddCardorListText = () => {
           multiline
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter a title for this card..."
+          placeholder={type=== "card" ? "Enter title for this card" : "Enter list title..."}
           inputProps={{ className: classes.input }}
         />
       </Paper>
       <div className={classes.confirm}>
         <div className={classes.options}>
           {" "}
-          <Button className={classes.btnConfirm}>Add card</Button>
+          <Button className={classes.btnConfirm}>
+            {
+              type== "card" ? "Add card" : "Add list"
+            }
+            
+            </Button>
           {/* Este es es icono de papelera, pero va rodeado por el IconButton para que pueda ser clickado */}
           <IconButton>
             <DeleteForeverIcon />

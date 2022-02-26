@@ -5,7 +5,8 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import "../styles/App.scss";
 import TrelloList from "./TrelloList";
 import background_image from "../images/color.jpg"
-import { AddCardorListText } from "./AddCardorListText";
+
+import AddCardorList from "./AddCardorList";
 
 function App() {
   const classes=useStyle();
@@ -17,7 +18,7 @@ function App() {
   <TrelloList/>
       <TrelloList/>
       <TrelloList/>
- <div>    <AddCardorListText/></div>
+ <div>    <AddCardorList type="list"/></div>
      </div>
     
  
