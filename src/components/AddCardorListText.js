@@ -12,19 +12,24 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz"; //Este es el icono de 
 
 import React, { useState } from "react";
 //Aquí es donde vamos a escribir nueva cosa que hacer o tambien se rehutilizara para escribir nueva tarjeta ej "urgente"
-export const AddCardorListText = ({type}) => {
+export const AddCardorListText = ({type, setOpen}) => {
   const [title, setTitle] = useState("");
 
   const classes = useStyle();
 
   return (
-    //Aqui en el InputBase con el onChange me deja escribir en el input y recoger el valor y cambiar el estado con setTitle a title
+    //Aqui en el InputBase con el onChange me deja escribir en el input y recoger el valor
+    // y cambiar el estado con setTitle a title
     //Un fragment <> porque no puede haber dos hijos a la misma altura
     <>
       <Paper className={classes.card}>
         <InputBase
           multiline
           value={title}
+          onBlur={()=>setOpen(false)} 
+          // Con esta funcion pasada por props hace: si estamos escribiendo en el input y clickamos fuera, se cierra,
+          // lo he puesto arriba en props junto con type para poder usarla. Y ha venido de la linea 20 AddCardorList, 
+          // que es quien maneja si abre o cierra. Se convierte en falso.
           onChange={(e) => setTitle(e.target.value)}
           placeholder={type=== "card" ? "Enter title for this card" : "Enter list title..."}
           inputProps={{ className: classes.input }}
@@ -37,10 +42,11 @@ export const AddCardorListText = ({type}) => {
             {
               type== "card" ? "Add card" : "Add list"
             }
-            
+            {/* Type depende si quiere hacer una lista o una tarjeta, pondrá en el boton add card o add list */}
             </Button>
           {/* Este es es icono de papelera, pero va rodeado por el IconButton para que pueda ser clickado */}
-          <IconButton>
+          <IconButton onClick={()=>setOpen(false)}>
+            {/* Este onClick lo que hace es que si damos a la basura se cierra, e sparecido a la funcion de onBlur de arriba */}
             <DeleteForeverIcon />
           </IconButton>
         </div>

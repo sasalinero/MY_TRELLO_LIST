@@ -5,12 +5,13 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import "../styles/App.scss";
 import TrelloList from "./TrelloList";
 import background_image from "../images/color.jpg"
-
 import AddCardorList from "./AddCardorList";
+import mockData from "./mockdata.js"
 
 function App() {
   const classes=useStyle();
-
+  const [data, setData]=useState(mockData);
+  console.log(data)
 
   return (
     <div className={classes.root}>

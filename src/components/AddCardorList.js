@@ -16,13 +16,15 @@ const AddCardorList = ({ type }) => {
 
   return (
     <div className={classes.root}>
+      {/* si open esta abierto se ejecutan estas lineas */}
       <Collapse in={open}>
-        <AddCardorListText type={type}/> 
+        <AddCardorListText type={type} setOpen={setOpen}/> 
          {/* Aqui se pasa por props el type (la cadena de texto) */}
       </Collapse>
-
+{/* si open esta cerrado se ejecutan estas otras */}
       <Collapse in={!open}>
-        <Paper className={classes.addCardorListText}>
+        <Paper className={classes.addCardorListText} onClick={()=>setOpen(true)}>
+          {/* El onclick es para que cuando demos en el boton Add Card or Add List se abra */}
           <Typography>
             {type === "card" ? "+ Add a card" : "+ Add an other list"}
           </Typography>
