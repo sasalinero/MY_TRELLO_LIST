@@ -4,7 +4,7 @@ import TrelloCard from "./TrelloCard";
 import AddCardorList from "./AddCardorList";
 
 
-const TrelloList = () => {
+const TrelloList = ({list}) => {
     //esta const es para habilitar el hook que está en la linea 7 de clases
     const classes=useStyle();
 
@@ -13,9 +13,14 @@ const TrelloList = () => {
       <Paper className={classes.root}>
           <CssBaseline/>
     <ListTitle/>
-    <TrelloCard/>
-    <TrelloCard/>
-    <TrelloCard/>
+    {
+        list.cards.map(card=>(
+         <TrelloCard card={card} key={card.id}/>   
+        ))
+    }
+    
+    {/* <TrelloCard/>
+    <TrelloCard/> */}
     <AddCardorList type="card"/>
 
      </Paper>

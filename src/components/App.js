@@ -16,14 +16,22 @@ function App() {
   return (
     <div className={classes.root}>
      <div className={classes.container} >
-  <TrelloList/>
-      <TrelloList/>
-      <TrelloList/>
+       {
+         data.listIds.map(listID=>{
+                      
+          //Aqui escribir el javascript. Cada vez que hacemos un map en react hay pasar una key
+          const list=data.lists[listID]
+          return<TrelloList list={list} key={listID}/> 
+         })
+          
+       }
+  
+      {/* <TrelloList/>
+      <TrelloList/> */}
  <div>    <AddCardorList type="list"/></div>
      </div>
     
  
-    
   
     </div>
   );
